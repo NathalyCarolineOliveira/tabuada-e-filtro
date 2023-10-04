@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtros Nomes</title>
+
+  <style>
+    body {
+      background-color: rgb(165, 117, 255);
+      color: rgb(252, 234, 255);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    input {
+      margin-left: 15px;
+    }
+
+    ul,
+    li {
+      list-style: none;
+      text-align: center;
+
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Seletor de Nomes</h1>
+
+  <form action="filtro.html">
+    <label for="">Informe um nome:</label>
+    <input type="text" name="campo_nome" id="nome" oninput="filtrar()">
+  </form>
+
+  <ul>
+    <li>Anna</li>
+    <li>Bernardo</li>
+    <li>Carlos</li>
+    <li>Carolina</li>
+    <li>Davi</li>
+    <li>Daniela</li>
+    <li>Eduarda</li>
+    <li>Ester</li>
+    <li>Nathaly</li>
+    <li>Nicole</li>
+    <li>Yasmin</li>
+    <li>Yuri</li>
+    <li>Zendaya</li>
+    <li>Zuri</li>
+  </ul>
+
+  <script>
+    function filtrar() {
+      let nome = document.getElementById("nome").value.toLowerCase();
+      let listas = document.getElementsByTagName("li");
+
+      for (const varredor of listas) {
+        if (nome === '') {
+          varredor.style.fontWeight = 'normal';
+        }
+        else if (varredor.innerText.toLowerCase().startsWith(nome)) {
+          varredor.style.fontWeight = 'bold';
+        } else {
+          varredor.style.fontWeight = 'normal';
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
